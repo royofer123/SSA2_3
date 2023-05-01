@@ -1,16 +1,12 @@
+
 #include "Fraction.hpp"
-#include <stdexcept>
+#include <iostream>
 #include <cmath>
-#include <limits>
-using namespace std;
-using namespace ariel ;
+#include <climits>
+#include <cstdlib>
+namespace ariel{
     int Fraction::gcd(int a,int b){
-        if (b == 0)
-            return a;
-        if (a < b)
-            return gcd(a, b % a);
-        else
-            return gcd(b, a % b);
+       return b == 0 ? a : gcd(b, a % b);
     }
     Fraction :: Fraction(){
     this -> numerator = 0;
@@ -23,12 +19,29 @@ using namespace ariel ;
     }
 
     Fraction::Fraction(int numerator, int denominator){
-       if(denominator==0) throw invalid_argument("Cannot divide by zero");
-        reduction();  
+     if (denominator == 0){
+        throw std::invalid_argument("Denominator can't be 0");
     }
-    Fraction::Fraction(double number){
+    if (numerator > INT_MAX || denominator > INT_MAX){
+        throw std::overflow_error("Num is too large, should be an int");
+    }
+    if (denominator < 0){
+        this ->numerator = -1* numerator;
+        this ->denominator = -1 * denominator;
+    }
+    else{
+        this -> numerator = numerator;
+        this -> denominator = denominator;
+    }
+    reduction();
 
-    }
+} 
+Fraction::Fraction(float numerator) {
+    this -> numerator = std :: round(numerator*1000);
+    this -> denominator = 1000;
+    reduction();
+}
+
     void Fraction::setNumerator(int){}
     void Fraction::setDenominator(int){}
     int Fraction::getDenominator ()const{
@@ -141,11 +154,11 @@ using namespace ariel ;
          return Fraction(1,2);
     }
 
-std::ostream& operator<<(std::ostream& output, const Fraction& fraction){
-    return (output << fraction.numerator<< '/' << fraction.denominator);
-}
-
-std::istream& operator>>(std::istream& inpt, Fraction& frc){
+std::ostream &operator<<(ostream &output, const Fraction &fraction) {
+        output << fraction.numerator << '/' << fraction.denominator;
+        return output;
+    }
+    std::istream& operator>>(std::istream& inpt, Fraction& frc){
     int numerator, denominator;
     if (inpt.peek() == EOF){
         throw std::runtime_error ("No numbers entred!");
@@ -163,6 +176,8 @@ std::istream& operator>>(std::istream& inpt, Fraction& frc){
     frc.setDenominator(denominator);
 	return inpt;
 }
+}
+
 
 
 

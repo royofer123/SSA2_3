@@ -16,7 +16,8 @@ namespace ariel{
     public:
     Fraction();
     Fraction(int numerator, int denominator);
-    Fraction(double number);
+    Fraction(float number);
+    
     void setNumerator(int);
     void setDenominator(int);
     int getNumerator() const;
@@ -68,5 +69,5 @@ namespace ariel{
     friend std::ostream& operator<<(std::ostream& out, const Fraction& fraction);
     friend std::istream& operator>>(std::istream& inpt, Fraction& fraction);
     };
-}
+};
 #endif //FRACTION_HPP
