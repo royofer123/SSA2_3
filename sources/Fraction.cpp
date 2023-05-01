@@ -59,90 +59,90 @@ Fraction::Fraction(float numerator) {
     Fraction Fraction::operator+(const Fraction &other) const{
         return Fraction(1, 2);
     }
-    Fraction Fraction::operator+(const float &num) const{
+    Fraction Fraction::operator+(float num) const{
         return *this + Fraction(num);
     }
-    Fraction operator+(const float &num, const Fraction &other){
+    Fraction operator+(float num, const Fraction &other){
         return Fraction(1, 2);
     }
 
     Fraction Fraction:: operator-(const Fraction &other) const{
         return Fraction(1, 2);
     }
-    Fraction Fraction::operator-(const float &num) const{
+    Fraction Fraction::operator-(float num) const{
         return Fraction(1, 2);
     }
-    Fraction operator-(const float &num, const Fraction &other){
+    Fraction operator-(float num, const Fraction &other){
         return Fraction(1, 2);
     }
 
     Fraction Fraction:: operator*(const Fraction &other) const{
         return Fraction(1, 2);
     }
-    Fraction Fraction::operator*(const float &num) const{
+    Fraction Fraction::operator*(float num) const{
         return Fraction(1, 2);
     }
-    Fraction operator*(const float &num, const Fraction &other){
+    Fraction operator*(float num, const Fraction &other){
         return Fraction(1, 2);
     }
 
     Fraction Fraction::operator/(const Fraction &other) const{
         return Fraction(1, 2);
     }
-    Fraction Fraction::operator/(const float &num) const{
+    Fraction Fraction::operator/(float num) const{
         return Fraction(1, 2);
     }
-    Fraction operator/(const float &num, const Fraction &other){
+    Fraction operator/(float num, const Fraction &other){
         return Fraction(1, 2);
     }
 
     bool Fraction::operator==(const Fraction &other) const{
         return true;
     }
-    bool Fraction::operator==(const float &num) const{
+    bool Fraction::operator==(float num) const{
         return true;
     }
-    bool operator==(const float &num, const Fraction &other){
+    bool operator==(float num, const Fraction &other){
         return true;
     }
 
     bool Fraction::operator>(const Fraction &other) const{
         return true;
     }
-    bool Fraction::operator>(const float &num) const{
+    bool Fraction::operator>(float num) const{
         return true;
     }
-    bool operator>(const float &num, const Fraction &other){
+    bool operator>(float num, const Fraction &other){
         return true;
     }
 
     bool Fraction::operator<(const Fraction &other) const{
         return true;
     }
-    bool Fraction::operator<(const float &num) const{
+    bool Fraction::operator<(float num) const{
         return true;
     }
-    bool operator<(const float &num, const Fraction &other){
+    bool operator<(float num, const Fraction &other){
         return true;
     }
 
     bool Fraction::operator>=(const Fraction &other) const{
         return true;
     }
-    bool Fraction::operator>=(const float &num) const{
+    bool Fraction::operator>=(float num) const{
         return true;
     }
-    bool operator>=(const float &num, const Fraction &other){
+    bool operator>=(float num, const Fraction &other){
         return true;
     }
 
     bool Fraction:: operator<=(const Fraction &other) const{
         return true;
     }
-    bool Fraction::operator<=(const float &num) const{
+    bool Fraction::operator<=(float num) const{
         return true;
     }
-    bool operator<=(const float &num, const Fraction &other){
+    bool operator<=(float num, const Fraction &other){
         return true;
     }
 
