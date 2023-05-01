@@ -4,6 +4,7 @@
 #include <cmath>
 #include <climits>
 #include <cstdlib>
+using namespace std;
 namespace ariel{
     int Fraction::gcd(int num1,int num2){
        return num2 == 0 ? num1 : gcd(num2, num1 % num2);
@@ -20,10 +21,10 @@ namespace ariel{
 
     Fraction::Fraction(int numerator, int denominator){
      if (denominator == 0){
-        throw std::invalid_argument("Denominator can't be 0");
+        throw invalid_argument("Denominator can't be 0");
     }
     if (numerator > INT_MAX || denominator > INT_MAX){
-        throw std::overflow_error("Num is too large, should be an int");
+        throw overflow_error("Num is too large, should be an int");
     }
     if (denominator < 0){
         this ->numerator = -1* numerator;
@@ -37,13 +38,18 @@ namespace ariel{
 
 } 
 Fraction::Fraction(float numerator) {
-    this -> numerator = std :: round(numerator*1000);
+    this -> numerator = round(numerator*1000);
     this -> denominator = 1000;
     reduction();
 }
 
-    void Fraction::setNumerator(int){}
-    void Fraction::setDenominator(int){}
+    void Fraction::setNumerator(int numerator){
+        this->numerator=numerator;
+    }
+    void Fraction::setDenominator(int denominator){
+        if(denominator!=0) this->denominator=denominator;
+        else throw invalid_argument("Denominator can't be 0");
+    }
     int Fraction::getDenominator ()const{
         return denominator;
     }
@@ -54,7 +60,7 @@ Fraction::Fraction(float numerator) {
         return Fraction(1, 2);
     }
     Fraction Fraction::operator+(const float &num) const{
-        return Fraction(1, 2);
+        return *this + Fraction(num);
     }
     Fraction operator+(const float &num, const Fraction &other){
         return Fraction(1, 2);

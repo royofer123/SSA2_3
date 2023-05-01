@@ -18,14 +18,17 @@ namespace ariel{
     Fraction(int numerator, int denominator);
     Fraction(float number);
     
-    void setNumerator(int);
-    void setDenominator(int);
+    void setNumerator(int numerator);
+    void setDenominator(int denominator) ;
     int getNumerator() const;
     int getDenominator()const;
     int gcd(int num1,int num2);
     void reduction();          
   
     Fraction operator+(const Fraction &other) const;
+    Fraction operator+(const float &number) const;
+    friend Fraction operator+(const float &number, const Fraction &other);
+
     Fraction operator-(const Fraction &other) const;
     Fraction operator-(const float &num) const;
     friend Fraction operator-(const float &num, const Fraction &other);
